@@ -28,19 +28,19 @@
   --on-teal:           #EDE5D4;
   --on-teal-muted:     #9FBFBE;
 
-  /* ---- type ---- */
+  /* type */
   --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-body: 'Inter', 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 
-  /* ---- spacing / shape ---- */
+  /* spacing / shape */
   --section-pad: clamp(4rem, 9vw, 7.5rem);
   --side-pad: clamp(1.5rem, 6vw, 6rem);
   --radius: 16px;
   --radius-sm: 10px;
   --radius-lg: 22px;
 
-  /* ---- motion ---- */
+  /* motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --fast: 180ms;
   --med: 420ms;
@@ -295,7 +295,7 @@ body::after {
   min-width: 0;
 }
 
-/* ---- floating portrait / avatar frame ---- */
+/* floating portrait / avatar frame */
 .hero-visual {
   flex: 0 0 auto;
   display: flex;
@@ -488,9 +488,9 @@ body::after {
 }
 
 
-/* ============================================================
+/*
    SECTION SHARED
-   ============================================================ */
+   */
 section:not(.hero) {
   padding: var(--section-pad) var(--side-pad);
   max-width: 1280px;
@@ -534,9 +534,9 @@ section:not(.hero)::before {
   font-size: 0.98rem;
 }
 
-/* ============================================================
+/*
    ABOUT
-   ============================================================ */
+   */
 .about-grid {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
@@ -603,9 +603,9 @@ section:not(.hero)::before {
   50% { opacity: 0.4; }
 }
 
-/* ============================================================
+/*
    SKILLS
-   ============================================================ */
+   */
 .skills-groups {
   display: grid;
   gap: 2.5rem;
@@ -655,9 +655,9 @@ section:not(.hero)::before {
   transition: opacity var(--fast) var(--ease);
 }
 
-/* ============================================================
+/*
    GOALS
-   ============================================================ */
+   */
 .goals-legend {
   display: flex;
   flex-wrap: wrap;
@@ -745,9 +745,9 @@ section:not(.hero)::before {
   opacity: 1;
 }
 
-/* ============================================================
+/*
    CONTACT
-   ============================================================ */
+   */
 .contact-links {
   display: grid;
   gap: 0.9rem;
@@ -800,9 +800,9 @@ section:not(.hero)::before {
   .contact-link-label { min-width: 100%; }
 }
 
-/* ============================================================
+/*
    FOOTER — deep teal, the page's dark contrast section
-   ============================================================ */
+   */
 .footer {
   text-align: center;
   padding: 3.5rem var(--side-pad) 4rem;
@@ -853,9 +853,9 @@ section:not(.hero)::before {
   opacity: 0.85;
 }
 
-/* ============================================================
+/*
    EASTER EGG GAME MODAL
-   ============================================================ */
+   */
 .game-modal {
   position: fixed;
   inset: 0;
@@ -939,18 +939,18 @@ section:not(.hero)::before {
   opacity: 0.8;
 }
 
-/* ============================================================
+/*
    RESPONSIVE
    Breakpoints used throughout this file:
      Mobile          320px – 767px  (default / mobile-first base)
      Tablet / iPad   768px – 1024px
      Laptop          1025px – 1440px
      Large desktop   1441px and up
-   ============================================================ */
+   */
 
-/* ---- Nav: hamburger for everything up to and including tablet,
+/* Nav: hamburger for everything up to and including tablet,
    full inline nav from laptop widths up. Drawer uses the deep teal
-   surface — the same dark contrast tone as the footer. ---- */
+   surface — the same dark contrast tone as the footer. */
 @media (max-width: 1024px) {
   .nav-links {
     position: fixed;
@@ -978,8 +978,8 @@ section:not(.hero)::before {
   .nav-toggle { display: flex; }
 }
 
-/* ---- Hero: stack the portrait under the copy any time the row
-   would otherwise get too tight to breathe (mobile + tablet). ---- */
+/* Hero: stack the portrait under the copy any time the row
+   would otherwise get too tight to breathe (mobile + tablet). */
 @media (max-width: 1024px) {
   .hero-layout {
     flex-direction: column;
@@ -990,14 +990,14 @@ section:not(.hero)::before {
   .hero-actions { justify-content: flex-start; }
 }
 
-/* ---- About: single column on phones only; tablets keep the
-   two-column layout since there's room for it. ---- */
+/* About: single column on phones only; tablets keep the
+   two-column layout since there's room for it. */
 @media (max-width: 767px) {
   .about-grid { grid-template-columns: 1fr; }
 }
 
-/* ---- General mobile polish: tighter section rhythm, tighter
-   hero letter-spacing, comfortable full-width buttons. ---- */
+/* General mobile polish: tighter section rhythm, tighter
+   hero letter-spacing, comfortable full-width buttons. */
 @media (max-width: 767px) {
   .hero-title { gap: 0 0.2em; }
   section:not(.hero) { padding-top: 3.5rem; padding-bottom: 3.5rem; }
@@ -1005,35 +1005,35 @@ section:not(.hero)::before {
   .hero-actions .btn { text-align: center; }
 }
 
-/* ---- Very small phones: reclaim a little extra horizontal room. ---- */
+/* Very small phones: reclaim a little extra horizontal room. */
 @media (max-width: 374px) {
   .skills-groups { gap: 2rem; }
   .goal-card, .skill-card, .contact-link, .meta-card { padding-left: 1.1rem; padding-right: 1.1rem; }
 }
 
-/* ---- Short / landscape phones and tablets: the hero shouldn't
-   force a full viewport height when there isn't much of it. ---- */
+/* Short / landscape phones and tablets: the hero shouldn't
+   force a full viewport height when there isn't much of it. */
 @media (max-height: 500px) and (orientation: landscape) {
   .hero { min-height: auto; padding-top: 6rem; padding-bottom: 3rem; }
   .avatar-float { animation: none; }
 }
 
-/* ---- Laptop and up: restore the roomier nav gap and hero gap
+/* Laptop and up: restore the roomier nav gap and hero gap
    now that there's space for them (fluid values already scale,
-   this just nudges a couple of fixed gaps back up). ---- */
+   this just nudges a couple of fixed gaps back up). */
 @media (min-width: 1025px) {
   .nav-links { gap: 2.5rem; }
 }
 
-/* ---- Large desktop: cap how wide the hero copy gets so lines
-   don't run on forever on big Windows monitors / ultrawides. ---- */
+/* Large desktop: cap how wide the hero copy gets so lines
+   don't run on forever on big Windows monitors / ultrawides. */
 @media (min-width: 1441px) {
   .hero-sub { max-width: 38em; }
 }
 
-/* ============================================================
+/*
    REDUCED MOTION
-   ============================================================ */
+   */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

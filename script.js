@@ -1,14 +1,14 @@
 'use strict';
 
-/* ============================================================
+/*
    SHARED STATE
-   ============================================================ */
+   */
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isTouch = window.matchMedia('(hover: none)').matches;
 
-/* ============================================================
+/*
    CURSOR GLOW (desktop only, disabled on reduced motion)
-   ============================================================ */
+   */
 (function cursorGlow() {
   const glow = document.getElementById('cursorGlow');
   if (!glow || reducedMotion || isTouch) return;
@@ -39,9 +39,9 @@ const isTouch = window.matchMedia('(hover: none)').matches;
   }
 })();
 
-/* ============================================================
+/*
    NAV: scroll state + mobile toggle
-   ============================================================ */
+   */
 (function nav() {
   const navEl = document.getElementById('nav');
   const toggle = document.getElementById('navToggle');
@@ -68,9 +68,9 @@ const isTouch = window.matchMedia('(hover: none)').matches;
   });
 })();
 
-/* ============================================================
+/*
    SCROLL-TRIGGERED REVEAL for section heads / cards
-   ============================================================ */
+   */
 (function scrollReveal() {
   const targets = document.querySelectorAll('.section-head, .meta-card, .skill-card, .contact-link, .creative-tags span');
   if (reducedMotion || !('IntersectionObserver' in window)) {
@@ -93,9 +93,9 @@ const isTouch = window.matchMedia('(hover: none)').matches;
   targets.forEach((t) => io.observe(t));
 })();
 
-/* ============================================================
+/*
    SKILLS: hover / focus reveals description
-   ============================================================ */
+   */
 (function skills() {
   const cards = document.querySelectorAll('.skill-card');
   const hint = document.getElementById('skillHint');
@@ -119,9 +119,9 @@ const isTouch = window.matchMedia('(hover: none)').matches;
   });
 })();
 
-/* ============================================================
+/*
    CREATIVE STAGE: shapes drift toward cursor, word cycles
-   ============================================================ */
+   */
 (function creative() {
   const stage = document.getElementById('creativeStage');
   const word = document.getElementById('creativeWord');
@@ -167,17 +167,11 @@ const isTouch = window.matchMedia('(hover: none)').matches;
   }
 })();
 
-/* ============================================================
+/*
    FOOTER YEAR
-   ============================================================ */
+   */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ============================================================
-   EASTER EGG: hidden mini-game "BYTE RUNNER"
-   Trigger: click the blinking "_" in the logo 5 times,
-   or click the coffee cup in the footer 5 times,
-   or the classic arrow-key konami snippet: Up Up Down Down.
-   ============================================================ */
 (function easterEgg() {
   const modal = document.getElementById('gameModal');
   const closeBtn = document.getElementById('gameClose');
@@ -229,7 +223,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     if (e.key === 'Escape' && modal.classList.contains('open')) closeGame();
   });
 
-  /* ---------- Byte Runner: minimal canvas runner ---------- */
+  /* Byte Runner: minimal canvas runner */
   const Game = (function () {
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
